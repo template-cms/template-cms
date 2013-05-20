@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root><options><option_autoincrement>3</option_autoincrement></options><menu id="1"><menu_order>1</menu_order><menu_name>Home</menu_name><menu_link>home</menu_link><menu_target/></menu><menu id="2"><menu_order>3</menu_order><menu_name>Forum</menu_name><menu_link>http://forum.template-cms.ru/</menu_link><menu_target>_blank</menu_target></menu><menu id="3"><menu_order>2</menu_order><menu_name>About</menu_name><menu_link>about</menu_link><menu_target/></menu></root>

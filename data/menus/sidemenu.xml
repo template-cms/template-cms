@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <options>
+    <option_autoincrement>1</option_autoincrement>
+  </options>
+  <menu id="1">
+    <menu_order>0</menu_order>
+    <menu_name>home</menu_name>
+    <menu_link>home</menu_link>
+    <menu_target/>
+  </menu>
+</root>

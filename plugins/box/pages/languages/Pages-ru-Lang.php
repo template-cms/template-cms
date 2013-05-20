@@ -1,0 +1,29 @@
+<?php
+
+    $lang['pages_menu']     = 'Контент';
+    $lang['pages_submenu']  = 'Страницы';
+    $lang['pages_add']      = '+ Добавить';
+    $lang['pages_pages']    = 'Страницы';
+    $lang['pages_date']     = 'Дата';
+    $lang['pages_edit']     = 'Редактировать';
+    $lang['pages_delete']   = 'Удалить';
+    $lang['pages_editing']  = 'Редактирование страницы';
+    $lang['pages_creating'] = 'Создание новой страницы';
+    $lang['pages_name']     = 'Название (slug)';
+    $lang['pages_title']    = 'Заголовок';
+    $lang['pages_description'] = 'Описание';
+    $lang['pages_keywords'] = 'Ключевые слова';
+    $lang['pages_parent']   = 'Родитель';
+    $lang['pages_save']     = 'Сохранить';
+    $lang['pages_template'] = 'Шаблон';
+    $lang['pages_empty_field'] = 'Это поле не должно быть пустым';
+    $lang['pages_year']    = 'Год';
+    $lang['pages_month']   = 'Месяц';
+    $lang['pages_day']     = 'День';
+    $lang['pages_hours']   = 'Часы';
+    $lang['pages_minutes'] = 'Минуты';
+    $lang['pages_seconds'] = 'Секунды';
+    $lang['pages_other']   = 'Дополнительно';    
+    $lang['pages_exists']   = 'Такая страница уже существует';    
+    $lang['pages_save_and_exit']   = 'Сохранить и выйти';    
+    $lang['pages_clone']   = 'Клонировать';

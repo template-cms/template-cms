@@ -1,0 +1,37 @@
+<?php
+    
+    $lang['system_menu'] = 'Система';
+    $lang['system_submenu'] = 'Настройки';
+    $lang['system_sitename'] = 'Название сайта';
+    $lang['system_description'] = 'Описание сайта';
+    $lang['system_keywords'] = 'Ключевые слова сайта';
+    $lang['system_siteslogan'] = 'Слоган сайта';
+    $lang['system_defpage'] = 'Страница по умолчанию';
+    $lang['system_url'] = 'Адрес сайта';
+    $lang['system_language'] = 'Язык';    
+    $lang['system_save'] = 'Сохранить';
+    $lang['system_site_settings'] = 'Настройки сайта';
+    $lang['system_system_settings'] = 'Настройки системы';
+    $lang['system_site'] = 'сайт';
+    $lang['system_logout'] = 'выход';
+    $lang['system_timezone'] = 'Временная зона';
+    $lang['system_maintenance'] = 'Техническое обслуживание';
+    $lang['system_maintenance_on'] = 'Поставить на тех.обслуживание';
+    $lang['system_maintenance_off'] = 'Снять с тех.обслуживания';
+    $lang['system_sitemap_create'] = 'Создать карту сайта';
+    $lang['system_sitemap_created'] = 'Карта сайта создана';
+    $lang['system_sitemap'] = 'Карта сайта';
+    $lang['system_old'] = 'Опубликована новая версия Template CMS';
+    $lang['system_download_latest'] = 'Скачать последнюю версию!';
+    $lang['system_core'] = 'Ядро';
+    $lang['system_version'] = 'Версия системы';
+    $lang['system_version_id'] = 'Версия системы ID';
+    $lang['system_gzip'] = 'Cжатие GZIP';
+    $lang['system_debuging'] = 'Дебаггинг';
+    $lang['system_debuging_on'] = 'включен';
+    $lang['system_debuging_off'] = 'выключен';
+    $lang['system_plugins_active'] = 'Подключенные плагины';
+    $lang['system_hooks_registered'] = 'Зарегистрированные хуки';
+    $lang['system_filters_registered'] = 'Зарегистрированные фильтры';  
+    $lang['system_administration'] = 'Администрирование';
+    $lang['system_powered_by'] = 'Работает на';

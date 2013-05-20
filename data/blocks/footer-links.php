@@ -1,0 +1,1 @@
+<a href="<?php getSiteUrl(); ?>sitemap"><?php echo lang('system_sitemap');?></a> | <a href="<?php getSiteUrl(); ?>admin"><?php echo lang('system_administration');?></a>

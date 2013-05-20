@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <plugin_location>plugins/box/themes/ThemesPlugin.php</plugin_location>
+    <plugin_frontend>no</plugin_frontend>
+    <plugin_backend>yes</plugin_backend>
+    <plugin_status>active</plugin_status>
+    <plugin_priority>3</plugin_priority>
+</root>

@@ -1,0 +1,648 @@
+/*
+    Created on : 20.11.2011 - 2012, 1:31:38
+    Author     : Awilum
+    Description:
+        Main admin styles
+
+ Reset all styles
+----------------------------------------------- */
+* {
+    margin:0;
+    padding:0;
+}
+
+:focus {
+    outline:0;
+}
+
+img {
+    border:0;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+html {
+    height:100%;
+}
+
+body {
+    background:#FFF url(../img/body_main.png) repeat-x;
+    font:normal 12px Verdana, Geneva, sans-serif;
+    line-height:1.8em;
+    margin:0;
+    padding:0;
+    text-align:left;
+}
+
+/* Lists
+----------------------------------------------- */
+ul {
+    list-style:outside disc;
+    margin:1em 0 1.5em 1.5em;
+}
+
+ol {
+    list-style:outside decimal;
+    margin:1em 0 1.5em 1.5em;
+}
+
+dl {
+    margin:0 0 1.5em;
+}
+
+dd {
+    margin-left:1.5em;
+}
+
+/* Main container
+----------------------------------------------- */
+#container {
+    background:#fafafa;
+    font-size:small;
+    margin:0 auto;
+    width:960px;
+}
+
+/* Typography
+----------------------------------------------- */
+h1,h2,h3,h4,h5,h6 {
+    color:#5a5a5a;
+    font-weight:400;
+    margin:0;
+    padding:0;
+}
+
+h1 {
+    font-size:2em;
+    letter-spacing:-1px;
+}
+
+h2 {
+    font-size:1.5em;
+    letter-spacing:-1px;
+}
+
+h3 {
+    font-size:1em;
+    font-weight:700;
+}
+
+
+/* Colors and & backgrounds
+----------------------------------------------- */
+a {
+    color:#2D8C99;
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:underline;
+}
+
+
+/* Header
+----------------------------------------------- */
+#header {
+    height:120px;
+    width:100%;
+}
+
+#header-inside {
+    margin:3px auto 0;
+    width:960px;
+}
+
+#header-inside-buttons {
+    margin:0 auto;
+    text-align:right;
+    width:960px;
+}
+
+#header-inside-buttons a {
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background-color:#363636;
+    border-radius:3px;
+    color:#999;
+    font-size:12px;
+    margin-left:2px;
+    padding:2px 8px;
+    text-decoration:none;
+}
+
+#header-inside-buttons a:hover {
+    background-color:#545454;
+    color:#FFF;
+    text-decoration:none;
+}
+
+#header-inside-buttons a:hover {
+    background-color:#545454;
+    color:#FFF;
+    text-decoration:none;
+}
+
+#header-inside-buttons .top-navigation-current {
+    background-color:#545454;
+    color:#FFF;
+    text-decoration:none;
+}
+
+/* Main Navigation
+----------------------------------------------- */
+#menu {
+    float:right;
+    font-size:1em;
+    list-style:none;
+    margin:-17px 20px 0 0;
+    padding:0;
+}
+
+#menu li {
+    float:left;
+    margin:0;
+    padding:0 0 0 3px;
+}
+
+#menu a {
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background:#222;
+    color:#999;
+    display:block;
+    float:left;
+    margin:0;
+    padding:5px 15px;
+    text-decoration:none;
+}
+
+#menu a:hover {
+    background:#2E2E2E;
+    color:#FFF;
+}
+
+#menu a.current {
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background:#E9EAEA;
+    border-bottom:1px solid #E9EAEA;
+    color:#333;
+}
+
+#sub-menu {
+    font-size:1em;
+    list-style:none;
+    margin:21px 0 0;
+    width:100%;
+}
+
+#sub-menu li:first-child {
+    margin-left:3px;
+}
+
+#sub-menu li {
+    float:left;
+    margin:0;
+}
+
+#sub-menu a {
+    color:#333;
+    display:block;
+    float:left;
+    margin:0;
+    padding:5px 12px;
+    text-decoration:none;
+}
+
+#sub-menu a.sub-current {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    background:#737373;
+    border-radius:5px;
+    color:#FFF;
+}
+
+/* Content
+----------------------------------------------- */
+#content {
+    margin:15px auto 0;
+    width:960px;
+}
+
+.admin-heading {
+    border-bottom: 1px solid #D5D5D5;
+    color: #5F5F5F;
+    font-size: 24px;
+    margin-top:30px;
+    width: 90%;
+    padding-bottom:13px;
+}
+
+#section-bar {
+    float:right;
+    margin-bottom:10px;
+}
+
+/* Footer
+----------------------------------------------- */
+
+#footer {
+    border-top:1px solid #E8E8E8;
+    color:#AAB7BB;
+    font-size:small;
+    margin:0 auto;
+    margin-top:20px;
+    width:960px;
+    text-align: right;
+}
+
+#footer a {
+    color:#AAB7BB;
+    text-decoration: underline;
+}
+
+#footer a:hover {
+    color:#8E9FA5;
+}
+
+.admin-table {
+    width:960px;
+}
+
+.admin-table-header {
+    background-color:#eee;
+    border-color:#ccc;
+    border-style:solid;
+    border-width:1px;
+    color:#666;
+    font-weight:700;
+    line-height:24px;
+    margin:0;
+    padding:0 0 0 20px;
+    text-shadow:0 1px 1px #FFF;
+    width:720px;
+}
+
+.admin-table-content {
+    background:#fff;
+}
+
+.admin-table-titles {
+    width:60%;
+}
+
+.admin-table-field {
+    padding:5px;
+}
+
+.admin-table-tr {
+    border-bottom:1px solid #ccc;
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+}
+
+.admin-table-tr:hover {
+    background: #F7FAEB;
+}
+
+label {
+    color:#575757;    
+}
+
+/* Buttons for HTML HELPER
+----------------------------------------------- */
+.btn a {
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background-color:#4F4F4F;
+    border-radius:3px;
+    color:#FFF;
+    font-size:12px;
+    margin-left:10px;
+    padding:2px 8px;
+    text-decoration:none;
+}
+
+.btn a:hover {
+    background:#575757;
+    color:#FFF;    
+}
+
+.btn-plus a {
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background-color:#826C55;
+    border-radius:3px;
+    color:#FFF;
+    font-size:10px;
+    margin-left:10px;
+    padding:2px 4px;
+    text-decoration:none;
+    font-weight: 700;
+}
+
+.btn-plus a:hover {
+    background:#575757;
+    color:#FFF;
+}
+
+.btn-edit a {
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background-color:#aab7bb;
+    border-radius:3px;
+    color:#FFF;
+    font-size:12px;
+    margin-left:10px;
+    padding:2px 8px;
+    text-decoration:none;
+}
+
+.btn-edit a:hover {
+    background:#8E9FA5;
+    color:#FFF;
+    text-decoration:none;
+}
+
+.btn-delete a {
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background-color:#9B5050;
+    border-radius:3px;
+    color:#FFF;
+    font-size:12px;
+    margin-left:10px;
+    padding:2px 8px;
+    text-decoration:none;
+}
+
+.btn-delete a:hover {
+    background:#7A3F3F;
+    color:#FFF;
+    text-decoration:none;
+}
+
+.btn-delete-disable a{
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background-color:#693636;
+    border-radius:3px;
+    color:#FFF;
+    font-size:12px;
+    margin-left:10px;
+    padding:2px 8px;
+    text-decoration:none;
+}
+
+/* Forms
+----------------------------------------------- */
+input[type=text],
+input[type=password] {
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+    border: 1px solid #D5D5D5;    
+    color: #5F5F5F;
+    padding:5px;
+    margin-bottom:10px;
+}
+
+input[type=text]:focus {
+    border: 1px solid #B0B0B0;
+    color: #333;
+}
+
+input[type=password]:focus {
+    border: 1px solid #B0B0B0;
+    color: #333;
+}
+
+select {
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+    border: 1px solid #D5D5D5;
+    padding:5px;
+    margin-bottom:10px;    
+}
+
+select:focus {
+    border: 1px solid #B0B0B0;
+    color: #333;
+}
+
+textarea {
+    border: 1px solid #D5D5D5;
+    color: #5F5F5F;
+    padding:5px;
+    margin-bottom:10px; 
+}
+
+textarea:focus {
+    border: 1px solid #B0B0B0;
+    color: #333;
+}
+
+.submit {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border: 1px solid #ccc;
+    border-radius:3px;
+    background: #fff;
+    color: #707070;
+    cursor:pointer;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px 12px;
+}
+
+.submit:hover {
+    background:#F2F2F2;
+}
+
+.submit-link a {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border: 1px solid #ccc;
+    border-radius:3px;
+    background: #fff;
+    color: #707070;
+    cursor:pointer;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 6px 12px;
+    text-decoration:none;
+}
+
+.submit-link a:hover {
+   background: #F2F2F2;
+}
+
+/* Messages
+----------------------------------------------- */
+.message-ok {
+    background:#EFF4D7;
+    border:1px solid #DFEAAF;
+    color:#4E4131;
+    padding: 10px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.message-warning {
+    background:#FFF6BF;
+    border:1px solid #FFE88A;
+    color:#4E4131;
+    padding: 10px;
+    margin-top:10px;
+    margin-bottom:10px;
+    }
+
+.message-error {    
+    background:#FF9999;
+    border:1px solid #F84D30;
+    color:#4E4131;
+    padding: 10px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+/* Debugin
+----------------------------------------------- */
+.debugin {
+    background:#363636;
+    color:#9C4F4F;
+    padding:5px;
+    width:100%;
+}
+
+#debugger-button {
+    cursor:pointer;
+}
+
+#debugger {
+    background: #333;
+    border: 2px solid #4d4d4d;
+    color:#fff;    
+    display: none;
+    font-weight: 700;
+    padding: 5px;
+    margin:10px auto 0;
+    width:960px;
+    word-wrap: break-word;
+}
+
+/* Color text links
+----------------------------------------------- */
+.text-red a{
+    color: #FF0000;
+}
+
+.text-pink a{
+    color: #FF6666;
+}
+
+
+/* Misc
+----------------------------------------------- */
+.date {
+    color:#ccc;
+}
+
+.filesize {    
+    color:#ccc;
+    font-size:0.8em;
+}
+
+.arrow {
+    color:#999;
+    font-family:serif;
+}
+
+
+.code {
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background-color:#8E9FA5;
+    border-radius:3px;
+    color:#FFF;
+    font-size:10px;
+    padding:5px;
+    margin: 0 5px 0 5px;
+}
+
+
+hr {
+    border-bottom: 0px;
+    border-top: 1px dashed #D6D6D6;
+}
+
+.error {
+    color:#FA7660;
+}
+
+.error404-link a {
+    color:#BDBDBD;
+}
+
+    
+/* Reveal Modals plugin
+----------------------------------------------- */
+
+.reveal-modal-bg { 
+    background: #000;
+    background: rgba(0,0,0,.8);
+    display: none;
+    left: 0; 
+    position: fixed; 
+    height: 100%;     
+    top: 0;
+    width: 100%;    
+    z-index: 100;
+}
+
+.reveal-modal {
+    border-radius: 5px;
+    background: #eee;
+    left: 50%;
+    position: absolute;    
+    padding: 30px 40px 34px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+    -box-shadow: 0 0 10px rgba(0,0,0,.4);
+    margin-left: -450px;   
+    top: 150px; 
+    width: 800px;
+    visibility: hidden;
+    z-index: 101;
+}
+
+.reveal-modal.small  { width: 200px; margin-left: -140px;}
+.reveal-modal.medium { width: 400px; margin-left: -240px;}
+.reveal-modal.large  { width: 600px; margin-left: -340px;}
+.reveal-modal.xlarge { width: 800px; margin-left: -440px;}
+
+.reveal-modal .close-reveal-modal { 
+    color: #aaa;
+    cursor: pointer;
+    font-size: 22px;   
+    font-weight: bold;
+    line-height: .5;              
+    position: absolute;
+    right: 11px;
+    top: 8px;
+    text-shadow: 0 -1px 1px rbga(0,0,0,.6);
+} 

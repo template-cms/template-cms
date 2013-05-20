@@ -1,0 +1,121 @@
+/*
+    Document   : admin_login
+    Created on : 08.12.2011 - 2012, 23:59:25
+    Author     : Awilum
+    Description:
+        Purpose of the stylesheet follows.
+
+ Reset all styles
+----------------------------------------------- */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,
+blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,
+font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,
+i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,
+tbody,tfoot,thead,tr,th,td {
+    background:transparent;
+    border:0;
+    font-size:100%;
+    outline:0;
+    margin:0;
+    padding:0;
+}
+
+ol,ul {
+    list-style:none;
+}
+
+blockquote,q {
+    quotes:none;
+}
+
+:focus {
+    outline:0;
+    background: none;
+}
+
+ins {
+    text-decoration:none;
+}
+
+del {
+    text-decoration:line-through;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+html {
+    height:100%;
+}
+
+body {
+    background:#1B1B1D;
+    color:#fff;
+    font:normal 12px Verdana, Geneva, sans-serif;
+    line-height:1.8em;
+    margin:0;
+    padding:0;
+    text-align:left;
+}
+
+/* Main container
+----------------------------------------------- */
+
+#logo {
+    margin-left: 40px;
+    padding-bottom: 15px;
+}
+
+#container {
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background-color:#181819;
+    border-radius:3px;
+    font-size:small;    
+    padding:25px;
+    left:50%;
+    margin-left:-180px;
+    margin-top:-150px;
+    position:absolute;
+    padding:25px;
+    top:50%;
+    width:360px;    
+}
+
+input[type=submit] {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border: 1px solid #ccc;
+    border-radius:3px;
+    background: #fff;
+    color: #707070;
+    cursor:pointer;    
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px 12px;
+}
+
+td {
+    padding:5px;
+}
+
+input[type=text],
+input[type=password] {
+    background-color:#fdfdfd;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    border:none;
+    color:#888888;
+    height:24px;
+    line-height:24px;
+    padding-left:8px;
+    outline:none;
+    width:215px;
+}
+
+.error {
+    color:#FA7660;
+}

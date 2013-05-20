@@ -1,0 +1,256 @@
+
+/* TEMPLATE CMS DEFAULT HTML5 THEME
+ * AWILUM / ROMANENKO SERGEY 2011 - 2012
+ ----------------------------------------------- */
+
+/* HEADER
+----------------------------------------------- */
+header {
+    display: block;
+    margin: 0px auto;
+    width: 960px;
+}
+
+#logo {
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    background: #fff;
+    padding: 35px 0px 35px 40px;
+}
+
+#logo a:active {
+    background: transparent !important;
+}
+
+
+/* MAIN
+----------------------------------------------- */
+body {
+    background: #f1f1f1;
+    color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 62.5%;
+    padding: 0;
+    margin: 0;    
+}
+
+:focus {
+    outline:0;
+}
+
+/* NAVIGATION
+----------------------------------------------- */
+nav {
+    display: block;
+    font-size: 2.0em;
+    font-weight: 700;
+    margin: 0px auto;
+    overflow: hidden;
+    padding: 0px 0px 0px 10px;
+    width: 950px;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    float: left;
+    list-style: none;
+    padding: 10px 15px 10px 15px;
+}
+nav a {
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    display: block;
+    color: #000 !important;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+}
+nav a:hover {    
+    background: #fff;
+    color: #444;
+}
+
+nav a.current {    
+    background: #fff;
+    color: #444;
+}
+
+/* CONTENT
+----------------------------------------------- */
+#content {    
+    -webkit-box-orient: horizontal;
+    display: -webkit-box;
+    font-size: 1.4em;
+    margin: 0px auto; 
+    width: 960px;
+}
+
+
+.hpage, x:-moz-any-link, x:only-child {
+    float: left;
+}
+
+article {
+    color: #222;
+    display: block;
+    line-height: 1.5em;
+    text-align: justify;
+}
+
+
+#main-content, .hpage {
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    background: #fff;
+    display: block;
+    padding: 20px 20px 20px 40px;
+    width: 900px;   
+}
+
+
+/* FOOTER
+----------------------------------------------- */
+footer {
+    display: block;    
+}
+
+#main-footer {    
+    color:#999;
+    font-size: 1.2em;
+    width: 960px;
+    margin: 0px auto;
+    padding: 15px;    
+    text-align: right;
+}
+
+
+/* TYPOGRAPHY
+----------------------------------------------- */
+
+h1 { font-size: 3.0em; }
+h2 { font-size: 2.2em; }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 1.0em; }
+h6 { font-size: 0.8em; }
+
+hgroup h3, hgroup h3 a { color: #9aa8ad !important; }
+hgroup h1, hgroup h1 a { color: #51add3 !important; }
+h3 a { text-decoration: underline; }
+h1, h2, h3, h4, h5, h6 { line-height: 0.5em; }
+
+a {
+    color: #2a708e;
+    text-decoration: none;
+}
+
+a img {
+    border: 0;
+}
+
+a:visited { color: #104258; }
+a:active { background: #eaf7fc; }
+a:hover { color: #0c1e2f; }
+
+.admin-heading {
+    border-bottom: 1px dashed #8F8F8F;
+    color: #5F5F5F;
+    font-size: 24px;
+    padding-bottom:3px;
+    width: 90%;
+}
+
+/* FORMS
+----------------------------------------------- */
+input[type=text] {
+    border: 1px solid #D5D5D5;
+    padding:5px;
+    margin-bottom:10px;
+}
+
+input[type=text]:focus {
+    border: 1px solid #B0B0B0;
+    color: #333;
+}
+
+input[type=password] {
+    border: 1px solid #D5D5D5;
+    padding:5px;
+    margin-bottom:10px;
+}
+
+input[type=password]:focus {
+    border: 1px solid #B0B0B0;
+    color: #333;
+}
+
+
+textarea {
+    border: 1px solid #D5D5D5;
+    padding:5px;
+    margin-bottom:10px;
+}
+
+textarea:focus {
+    border: 1px solid #B0B0B0;
+    color: #333;
+}
+
+
+select {
+    border: 1px solid #D5D5D5;
+    padding:5px;
+    margin-bottom:10px;
+}
+
+input[type=submit] {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius:3px;    
+    color: #707070;
+    cursor:pointer;
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+input[type=submit] {
+    background:#F2F2F2;
+}
+
+
+/* MISC
+----------------------------------------------- */
+.floatleft {
+    float: left;
+}
+
+.floatright {
+    float: right;
+}
+
+hr {
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 1px dotted #d9d9d9;
+}
+
+label {
+    color: #999;
+}
+
+.floatleft {
+    float: left;
+}
+
+.floatright {
+    float: right;
+}
