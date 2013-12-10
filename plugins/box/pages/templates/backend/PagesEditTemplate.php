@@ -8,6 +8,7 @@
     htmlAdminHeading(lang('pages_editing'));
     htmlFormOpen('index.php?id=pages&action=edit_page&filename='.get('filename'));
     htmlFormInput(array('value'=>get('filename'),'name'=>'page_old_name','type'=>'hidden'));
+    htmlFormHidden('token', $_SESSION['token']); 
     
     if(isset($errors['pages_empty_name']) or isset($errors['pages_exists'])) $error_style = 'border:1px solid #FA7660'; else $error_style = '';
     echo '<span class="slug">';

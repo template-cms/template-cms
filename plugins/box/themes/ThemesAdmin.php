@@ -86,6 +86,10 @@
         // Its mean that you can add your own actions for this plugin
         runHook('admin_themes_extra_actions');
 
+        // For CSRF token
+        $start_time   = time();
+        $token_expire = 600;
+        
         // Check for get actions
         // ---------------------------------------------
         if (isGet('action')) {
@@ -121,6 +125,7 @@
                 // ---------------------------------------------
                 case "add_template":
                     if (isPost('add_template') || isPost('add_template_and_exit')) {
+                        if ($_SESSION['token'] != trim(post('token')) || $_SESSION['tk_esp'] < $start_time)  $errors['themes_empty_name'] = 'token error';
                         if (trim(post('themes_editor_name')) == '') $errors['themes_empty_name'] = lang('themes_empty_field');
                         if (file_exists(TEMPLATE_CMS_THEMES_PATH.$current_theme.'/'.safeName(post('themes_editor_name').'Template.php'))) $errors['themes_template_exists'] = lang('themes_template_exists');
 
@@ -136,6 +141,8 @@
                     // Save fields
                     if (isPost('themes_editor_name')) $post_name = post('themes_editor_name'); else $post_name = '';
                     if (isPost('themes_editor')) $post_themes_editor = post('themes_editor'); else $post_themes_editor = '';
+                    $_SESSION['tk_esp'] = $start_time + $token_expire;
+                    $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));
                     include 'templates/backend/ThemesAddTemplate.php';
                 break;
 
@@ -143,6 +150,7 @@
                 // ---------------------------------------------
                 case "edit_template":                    
                     if (isPost('edit_template') || isPost('edit_template_and_exit')) {
+                        if ($_SESSION['token'] != trim(post('token')) || $_SESSION['tk_esp'] < $start_time)  $errors['themes_empty_name'] = 'token error';
                         if (trim(post('themes_editor_name')) == '') $errors['themes_empty_name'] = lang('themes_empty_field');
                         if ((file_exists(TEMPLATE_CMS_THEMES_PATH.$current_theme.'/'.safeName(post('themes_editor_name').'Template.php'))) and (safeName(post('old_name')) !== safeName(post('themes_editor_name')))) $errors['themes_template_exists'] = lang('themes_template_exists');
 
@@ -159,6 +167,8 @@
                     }                    
                     if (isPost('themes_editor_name')) $post_name = post('themes_editor_name'); else $post_name = basename(get('file'),'Template.php');
                     $template_to_edit = loadFile(TEMPLATE_CMS_THEMES_PATH.$current_theme.'/'.get('file'));
+                    $_SESSION['tk_esp'] = $start_time + $token_expire;
+                    $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));
                     include 'templates/backend/ThemesEditTemplate.php';
                 break;
 
@@ -166,6 +176,7 @@
                 // ---------------------------------------------
                 case "add_css":                    
                     if (isPost('add_css') || isPost('add_css_and_exit')) {
+                        if ($_SESSION['token'] != trim(post('token')) || $_SESSION['tk_esp'] < $start_time)  $errors['themes_empty_name'] = 'token error';
                         if (trim(post('themes_editor_name')) == '') $errors['themes_empty_name'] = lang('themes_empty_field');
                         if (file_exists(TEMPLATE_CMS_THEMES_PATH.$current_theme.'/css/'.safeName(post('themes_editor_name').'.css'))) $errors['themes_css_exists'] = lang('themes_css_exists');
 
@@ -185,6 +196,8 @@
                     // Save fields
                     if (isPost('themes_editor_name')) $post_name = post('themes_editor_name'); else $post_name = '';
                     if (isPost('themes_editor')) $post_themes_editor = post('themes_editor'); else $post_themes_editor = '';
+                    $_SESSION['tk_esp'] = $start_time + $token_expire;
+                    $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));
                     include 'templates/backend/ThemesAddCSSTemplate.php';
                 break;
 
@@ -201,6 +214,7 @@
                 // ---------------------------------------------
                 case "edit_css":                                        
                         if (isPost('edit_css') || isPost('edit_css_and_exit')) {
+                        if ($_SESSION['token'] != trim(post('token')) || $_SESSION['tk_esp'] < $start_time)  $errors['themes_empty_name'] = 'token error';
                         if (trim(post('themes_editor_name')) == '') $errors['themes_empty_name'] = lang('themes_empty_field');
                         if ((file_exists(TEMPLATE_CMS_THEMES_PATH.$current_theme.'/css/'.safeName(post('themes_editor_name').'.css'))) and (safeName(post('old_name')) !== safeName(post('themes_editor_name')))) $errors['themes_css_exists'] = lang('themes_css_exists');
 
@@ -218,6 +232,8 @@
                     }
                     if (isPost('themes_editor_name')) $post_name = post('themes_editor_name'); else $post_name = basename(get('file'),'.css');
                     $css_to_edit = loadFile(TEMPLATE_CMS_THEMES_PATH.$current_theme.'/css/'.get('file'));
+                    $_SESSION['tk_esp'] = $start_time + $token_expire;
+                    $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));
                     include 'templates/backend/ThemesEditCSSTemplate.php';
                 break;
             }

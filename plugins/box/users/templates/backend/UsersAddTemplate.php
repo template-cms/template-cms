@@ -3,6 +3,7 @@
     htmlAdminHeading(lang('users_create_new_user'));
     htmlFormOpen('');
     htmlFormInput(array('name'=>'login','style'=>'width:300px;'), lang('users_login')); 
+    htmlFormHidden('token', $_SESSION['token']);
     htmlNbsp(3); if(isset($errors['users_this_user_alredy_exists'])) echo '<span class="error">'.$errors['users_this_user_alredy_exists'].'</span>';
                  if(isset($errors['users_empty_login'])) echo '<span class="error">'.$errors['users_empty_login'].'</span>';
 

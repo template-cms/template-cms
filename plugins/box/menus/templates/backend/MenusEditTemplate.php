@@ -41,11 +41,15 @@
         $menu_xml = selectXMLRecord($xml_db, "//menu[@id='".(int)get('edit')."']");
         if (isPost('submit_edit_menu')) {
             $menu_link = ltrim(post('edit_menu_link'), '/');
-            updateXMLRecord($xml_db, 'menu',(int)get('edit'), array('menu_order'=>post('edit_menu_order'),
+            if ($_SESSION['token'] != trim(post('token')) || $_SESSION['tk_esp'] < $start_time)  $err = 'token error'; else $err = '';
+            if (!$err)  updateXMLRecord($xml_db, 'menu',(int)get('edit'), array('menu_order'=>post('edit_menu_order'),
                                                                     'menu_name'=>post('edit_menu_name'),
                                                                     'menu_link'=>$menu_link,
                                                                     'menu_target'=>post('edit_menu_target')));
             redirect('index.php?id=themes&sub_id=menus&action=edit_menus&filename='.get('filename'));
+        } else {
+            $_SESSION['tk_esp'] = $start_time + $token_expire;
+            $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));
         }
 ?>
 <?php htmlAdminHeading(lang('menu_edit'))?>
@@ -62,18 +66,25 @@
             <?php htmlSelect($options, array('name'=>'edit_menu_target','style'=>'width:200px;'),lang('menu_target'),$menu_xml->menu_target); ?>
         </td>
         <td width="110px">
-            <?php htmlSelect($order_num, array('name'=>'edit_menu_order','style'=>'width:70px;'),lang('menu_order'),$menu_xml->menu_order); ?>
+            <?php htmlFormInput(array('value'=>toText($menu_xml->menu_order),'name'=>'edit_menu_order','size'=>'3'), lang('menu_order')); ?>
         </td>
+        <?php  if(isset($err) && $err) {?>
+        <td width="200px">
+            <?php echo $err; ?>
+        </td>
+        <?php }?>
     </tr>
     <tr>
         <td style="vertical-align: middle;">
-            <?php htmlFormClose(true, array('name'=>'submit_edit_menu','value'=>lang('menu_save'))); ?>
+            <?php htmlFormHidden('token', $_SESSION['token']); htmlFormClose(true, array('name'=>'submit_edit_menu','value'=>lang('menu_save'))); ?>
         </td>
     </tr>
 </table>
 <?php } ?>
 <?php
-    } else {      
+    } else {
+        $_SESSION['tk_esp'] = $start_time + $token_expire;
+        $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));      
         htmlFormOpen('index.php?id=themes&sub_id=menus&action=edit_menus&filename='.get('filename'));
 ?>
 <?php htmlAdminHeading(lang('menu_add'))?>
@@ -89,12 +100,17 @@
             <?php htmlSelect($options, array('name'=>'add_menu_target','style'=>'width:200px;'),lang('menu_target')); ?>
         </td>
         <td width="110px">
-            <?php htmlSelect($order_num, array('name'=>'add_menu_order','style'=>'width:70px;'),lang('menu_order')); ?>
+            <?php htmlFormInput(array('name'=>'add_menu_order','size'=>'3'),lang('menu_order')); ?>
         </td>
+        <?php  if(isset($err) && $err) {?>
+        <td width="200px">
+            <?php echo $err; ?>
+        </td>
+        <?php }?>
     </tr>
     <tr>
         <td style="vertical-align: middle;">
-            <?php htmlFormClose(true, array('name'=>'submit_add_menu','value'=>lang('menu_save'))); ?>
+            <?php htmlFormHidden('token', $_SESSION['token']); htmlFormClose(true, array('name'=>'submit_add_menu','value'=>lang('menu_save'))); ?>
         </td>
     </tr>
 </table>

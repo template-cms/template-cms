@@ -49,7 +49,13 @@
 
         // Ability to pass parameters
         foreach ($uri as $i => $u) {
-          if (isset($uri[$i])) { $pos = strrpos($uri[$i], "?"); if ($pos === false) { $uri[$i] = sanitizeURL($uri[$i]); } else { $uri[$i] = sanitizeURL(substr($uri[$i], 0, $pos)); } }
+          if (isset($uri[$i])) { 
+            $pos = strrpos($uri[$i], "?"); if ($pos === false) { 
+              $uri[$i] = sanitizeURL(str_replace('.html', '', $uri[$i])); 
+            } else { 
+              $uri[$i] = sanitizeURL(str_replace('.html', '', substr($uri[$i], 0, $pos))); 
+            } 
+          }
         }
     
         // Return uri segments

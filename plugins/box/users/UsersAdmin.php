@@ -24,7 +24,11 @@
 
         // Get users xml database
         $users_xml_db = getXMLdb('../data/users/users.xml');
-
+        
+        // For CSRF token
+        $start_time   = time();
+        $token_expire = 600;
+        
         // Check for get actions
         // ---------------------------------------------
         if (isGet('action')) {
@@ -40,6 +44,7 @@
                     if (isPost('register')) {
                         $user_login = trim(post('login'));
                         $user_password = trim(post('password'));
+                        if ($_SESSION['token'] != trim(post('token')) || $_SESSION['tk_esp'] < $start_time) $errors['users_empty_login']    = 'token error';
                         if ($user_login == '')    $errors['users_empty_login']    = lang('users_empty_field');
                         if ($user_password == '') $errors['users_empty_password'] = lang('users_empty_field');
                         $user = selectXMLRecord($users_xml_db, "/root/user[login='".$user_login."']");
@@ -55,6 +60,8 @@
                         }
 
                     }
+                    $_SESSION['tk_esp'] = $start_time + $token_expire;
+                    $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));
                     include 'templates/backend/UsersAddTemplate.php';
                 break;
 
@@ -65,7 +72,9 @@
                     $user = selectXMLRecord($users_xml_db, "//user[@id='".get('user_id')."']");
 
                     if (isPost('edit_profile')) {
-                        if (safeName(post('login')) != '') {                                       
+                        if (safeName(post('login')) != '' && 
+                            !($_SESSION['token'] != trim(post('token')) || $_SESSION['tk_esp'] < $start_time)) {
+ 
                             updateXMLRecord($users_xml_db, 'user', post('user_id'), array('login'     => safeName(post('login')),
                                                                                           'firstname' => post('firstname'),
                                                                                           'lastname'  => post('lastname'),
@@ -84,7 +93,8 @@
 
 
                     if (isPost('edit_profile_password')) {
-                        if (encryptPassword(post('old_password')) == post('real_old_password')) {
+                        if (encryptPassword(post('old_password')) == post('real_old_password') && 
+                            !($_SESSION['token'] != trim(post('token')) || $_SESSION['tk_esp'] < $start_time)) {
                             htmlPostText();
                             updateXMLRecord($users_xml_db, 'user', post('user_id'), array('password'=>encryptPassword(post('new_password'))));
                             flashMessage(lang('users_new_password_saved'));
@@ -92,7 +102,9 @@
                             flashMessage(lang('users_wrong_old_password'),'error');
                         }
                     }
-
+            
+                    $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));
+                    $_SESSION['tk_esp'] = $start_time + $token_expire;
                     include 'templates/backend/UsersEditTemplate.php';
                 break;
 
