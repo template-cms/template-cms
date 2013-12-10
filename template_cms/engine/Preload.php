@@ -35,7 +35,7 @@
     $options_xml             = getXMLdb($admin_path.TEMPLATE_CMS_DATA_PATH.'system/options.xml');        
     
     if ($options_xml['xml_object'] !== false) {
-        $site_url                = $options_xml['xml_object']->siteurl->value;
+        $site_url                = $options_xml['xml_object']->siteurl->value != '/' ? $options_xml['xml_object']->siteurl->value : get_base_url();
         $system_language         = $options_xml['xml_object']->language->value;
         $system_timezone         = $options_xml['xml_object']->timezone->value;        
         $defpage                 = $options_xml['xml_object']->defaultpage->value;   

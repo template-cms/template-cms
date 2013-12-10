@@ -5,6 +5,7 @@
    
     if(isset($errors['pages_empty_name']) or isset($errors['pages_exists'])) $error_style = 'border:1px solid #FA7660'; else $error_style = '';
     htmlFormInput(array('name'=>'page_name','style'=>$error_style,'value'=>$post_name),lang('pages_name'));
+    htmlFormHidden('token', $_SESSION['token']); 
     if(isset($errors['pages_empty_name'])) echo '&nbsp;&nbsp;&nbsp;<span class="error">'.$errors['pages_empty_name'].'</span>';
     if(isset($errors['pages_exists'])) echo '&nbsp;&nbsp;&nbsp;<span class="error">'.$errors['pages_exists'].'</span>';
     

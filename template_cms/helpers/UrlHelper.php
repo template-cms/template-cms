@@ -198,3 +198,25 @@ if ( ! function_exists('findUrl')) {
         return $url_output;
     }
 }
+    
+    // 
+    /**
+     * Autodetect base URL if necessary 
+     *
+     * @param boolean $is_full - get full or relarive url
+     * @return string URL - Uniform Resource Locator
+     */
+    function get_base_url($is_full = true){
+        // Как глубоко DOCUMENT_ROOT
+        $rdepth = count(explode('/', str_replace(DIRECTORY_SEPARATOR, '/', $_SERVER['DOCUMENT_ROOT'])));
+        // Как глубоко текущий файл относительно главного index'a.
+        $fdepth = 2;
+        // Физический путь
+        $fpath  = array_slice(explode(DIRECTORY_SEPARATOR, dirname(__FILE__)), $depth, -$fdepth);
+        // URL - путь
+        $upath  = explode('/', urldecode(trim(str_replace($_SERVER['QUERY_STRING'], '', $_SERVER['REQUEST_URI']), '?/')));
+        $ais    = array_intersect($fpath, $upath);
+        // echo '<pre>'; print_r($fpath); print_r($upath); print_r($ais); die();
+        if($is_full) $base = ($_SERVER['SERVER_PORT'] == 80 ? 'http://' : 'https://').$_SERVER["SERVER_NAME"].'/'; else $base = '';
+        return $base.($ais ? implode('/', $ais).'/' : '');
+    }  
