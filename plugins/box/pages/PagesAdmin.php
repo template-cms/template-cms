@@ -83,18 +83,13 @@
         $minutes = range(0, 59);
         $seconds = range(0, 59);   
 
-        
+        // For CSRF token
+        $start_time   = time();
+        $token_expire = 600;
         
         // Check for get actions
         // ---------------------------------------------
         if (isGet('action')) {
-            // Creating CSRF token 
-            if(!(isPost('add_page') || isPost('add_page_and_exit') || isPost('edit_page') || isPost('edit_page_and_exit'))) {
-                $start_time   = time();
-                $token_expire = 600;
-                $_SESSION['tk_esp'] = $start_time + $token_expire;
-                $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));
-            }
 
             // Switch actions
             // ---------------------------------------------
@@ -231,6 +226,8 @@
 
                     $date = explode('-',dateFormat(time(),'Y-m-d-H-i-s'));
 
+                    $_SESSION['tk_esp'] = $start_time + $token_expire;
+                    $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));
                     include 'templates/backend/PagesAddTemplate.php';
                 break;
 
@@ -407,7 +404,9 @@
 
                     // Get page to edit
                     $xml = getXML('../'.TEMPLATE_CMS_DATA_PATH.'pages/'.get('filename').'.xml');
-                    
+
+                    $_SESSION['tk_esp'] = $start_time + $token_expire;
+                    $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));
                     if ($xml) {
                         // Safe fields or load fields
                         if (isPost('page_name')) $slug_to_edit = post('page_name'); else $slug_to_edit = $xml->slug;

@@ -11,7 +11,7 @@
     htmlMemo('themes_editor',array('style'=>'width:100%;height:400px;'),$post_themes_editor);
     include 'ThemesSnippets.php';
 
-
+    htmlFormHidden('token', $_SESSION['token']); 
     htmlFormButton(array('value'=>lang('themes_save'),'name'=>'add_template'));
     htmlNbsp();
     htmlFormButton(array('value'=>lang('themes_save_and_exit'),'name'=>'add_template_and_exit'));

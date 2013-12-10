@@ -11,6 +11,10 @@
         $blocks_list = array();
         $errors = array();
 
+        // For CSRF token
+        $start_time   = time();
+        $token_expire = 600;
+        
         // Check for get actions
         // ---------------------------------------------
         if (isGet('action')) {
@@ -18,13 +22,7 @@
             // Switch actions
             // ---------------------------------------------
             switch (get('action')) {
-                // Creating CSRF token 
-                if(!(isPost('add_blocks') || isPost('add_blocks_and_exit') || isPost('edit_blocks') || isPost('edit_blocks_and_exit'))) {
-                    $start_time   = time();
-                    $token_expire = 600;
-                    $_SESSION['tk_esp'] = $start_time + $token_expire;
-                    $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));
-                }
+
                 // Add block
                 // ---------------------------------------------
                 case "add_block":
@@ -46,6 +44,8 @@
                     // Save fields
                     if (isPost('blocks_editor_name')) $post_name = post('blocks_editor_name'); else $post_name = '';
                     if (isPost('blocks_editor')) $blocks_data = post('blocks_editor'); else $blocks_data = '';
+                    $_SESSION['tk_esp'] = $start_time + $token_expire;
+                    $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));
                     include 'templates/backend/BlocksAddTemplate.php';
                 break;
 
@@ -72,7 +72,9 @@
                         }            
                     }
                     if (isPost('blocks_editor_name')) $post_name = post('blocks_editor_name'); else $post_name = fileName(get('filename'));
-                    $blocks_data = loadFile($blocks_path.get('filename').'.php');                    
+                    $blocks_data = loadFile($blocks_path.get('filename').'.php');  
+                    $_SESSION['tk_esp'] = $start_time + $token_expire;
+                    $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));                    
                     include 'templates/backend/BlocksEditTemplate.php';
                 break;
 

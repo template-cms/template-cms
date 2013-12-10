@@ -9,7 +9,7 @@
 
     htmlBr(2);
     htmlMemo('themes_editor',array('style'=>'width:100%;height:400px;'),$post_themes_editor);
-    
+    htmlFormHidden('token', $_SESSION['token']); 
     htmlFormButton(array('value'=>lang('themes_save'),'name'=>'add_css'));
     htmlNbsp();
     htmlFormButton(array('value'=>lang('themes_save_and_exit'),'name'=>'add_css_and_exit'));

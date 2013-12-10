@@ -31,6 +31,10 @@
         // ---------------------------------------------
         if (isGet('action')) {
             
+            // For CSRF token
+            $start_time   = time();
+            $token_expire = 600;
+        
             // Switch actions
             // ---------------------------------------------
             switch (get('action')) {
@@ -56,18 +60,19 @@
 
                     // Insert xml record
                     if (isPost('submit_add_menu')) {
+                        if ($_SESSION['token'] != trim(post('token')) || $_SESSION['tk_esp'] < $start_time)  $err = 'token error'; else $err = '';
                         $menu_link = ltrim(post('add_menu_link'), '/');
-                        insertXMLRecord($xml_db, 'menu', array('menu_order'  => post('add_menu_order'),
-                                                               'menu_name'   => post('add_menu_name'),
-                                                               'menu_link'   => $menu_link,
-                                                               'menu_target' => post('add_menu_target')));
+                        if (!$err)  insertXMLRecord($xml_db, 'menu', array('menu_order'  => post('add_menu_order'),
+                                                                           'menu_name'   => post('add_menu_name'),
+                                                                           'menu_link'   => $menu_link,
+                                                                           'menu_target' => post('add_menu_target')));
                     }
 
                     if ($xml_db) {
                         // Get records from menus database
                         $records = selectXMLRecord($xml_db, "//menu",'all');
                         // Get fields from array of menus records
-                        $menus_records = selectXMLfields($records, array('menu_name', 'menu_link', 'menu_target', 'menu_order'), 'menu_order', 'ASC');                    
+                        $menus_records = selectXMLfields($records, array('menu_name', 'menu_link', 'menu_target', 'menu_order'), 'menu_order', 'ASC');
                         include 'templates/backend/MenusEditTemplate.php';
                     }
                 break;

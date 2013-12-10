@@ -12,7 +12,7 @@
     htmlBr(2);   
     htmlMemo('themes_editor',array('style'=>'width:100%;height:400px;'),toText($template_to_edit));
     include 'ThemesSnippets.php';
-
+    htmlFormHidden('token', $_SESSION['token']); 
     htmlFormButton(array('value'=>lang('themes_save'),'name'=>'edit_template'));
     htmlNbsp();
     htmlFormButton(array('value'=>lang('themes_save_and_exit'),'name'=>'edit_template_and_exit'));

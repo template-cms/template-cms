@@ -11,7 +11,7 @@
     htmlBr(2);
     htmlMemo('themes_editor',array('style'=>'width:100%;height:400px;'),toText($css_to_edit));
   
-
+    htmlFormHidden('token', $_SESSION['token']); 
     htmlFormButton(array('value'=>lang('themes_save'),'name'=>'edit_css'));
     htmlNbsp();
     htmlFormButton(array('value'=>lang('themes_save_and_exit'),'name'=>'edit_css_and_exit'));
