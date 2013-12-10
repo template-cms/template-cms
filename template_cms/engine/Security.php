@@ -24,8 +24,10 @@
      *
      * @param string $password Password to encrypt
      */
-    function encryptPassword($password) {
-       return md5(md5(trim($password).TEMPLATE_CMS_PASSWORD_SALT));
+    function encryptPassword($pass) {
+		$tmp = ''; $salt = TEMPLATE_CMS_PASSWORD_SALT;
+		for($i = 0; $i < 9000; $i++) $tmp = sha1(sha1($tmp.trim($pass).$salt.$tmp, true).$salt.md5($tmp.trim($pass), true).$salt);
+		return $tmp;
     }
 
 
