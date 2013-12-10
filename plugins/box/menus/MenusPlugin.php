@@ -63,3 +63,44 @@
             include 'templates/frontend/MenusTemplate.php';
         }
     }
+    function render_menu_list_item($menu, $data, $sub = false, $subsub = false){
+        global $site_url;
+        $pos = strpos($menu['menu_link'], 'http://');
+        if ($pos === false) {
+            $link = $site_url.$menu['menu_link'];
+        } else {
+            $link = $menu['menu_link'];
+        }
+        $no_html = str_replace('.html', '', $menu['menu_link']);
+        // echo '<pre>'; print_r($no_html); echo '</pre>';
+        echo '<li'; $ca = '';
+        if (isset($data[1])) {
+            $child_link = explode("/",$menu['menu_link']);
+            if (isset($child_link[1])) {
+                if (in_array($child_link[1],$data)) {
+                    $ca = ' class="active" ';
+                }
+            }
+        }
+        if ($data[0] !== '') {
+            if (in_array($menu['menu_link'],$data) || in_array($no_html, $data)) {
+                $ca = ' class="active" ';
+            }
+        } else {
+            if ($defpage == trim($menu['menu_link'])) {
+                $ca = ' class="active" ';
+            }
+        }
+
+        echo $ca.'><a href="'.$link.'"'.$ca;
+        if (trim($menu['menu_target']) !== '') {
+            echo ' target="'.$menu['menu_target'].'" ';
+        }
+        echo '>'.$menu['menu_name'].'</a>';
+        if($sub && in_array((int)$menu['sort'], array_keys($sub))){
+            echo '<ul>';
+            foreach($sub[(int)$menu['sort']] as $submenu) render_menu_list_item($submenu, $data, $sub);
+            echo '</ul>';
+        }
+        echo '</li>'."\n";
+    }

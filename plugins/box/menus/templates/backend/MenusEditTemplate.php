@@ -66,7 +66,7 @@
             <?php htmlSelect($options, array('name'=>'edit_menu_target','style'=>'width:200px;'),lang('menu_target'),$menu_xml->menu_target); ?>
         </td>
         <td width="110px">
-            <?php htmlSelect($order_num, array('name'=>'edit_menu_order','style'=>'width:70px;'),lang('menu_order'),$menu_xml->menu_order); ?>
+            <?php htmlFormInput(array('value'=>toText($menu_xml->menu_order),'name'=>'edit_menu_order','size'=>'3'), lang('menu_order')); ?>
         </td>
         <?php  if(isset($err) && $err) {?>
         <td width="200px">
@@ -100,7 +100,7 @@
             <?php htmlSelect($options, array('name'=>'add_menu_target','style'=>'width:200px;'),lang('menu_target')); ?>
         </td>
         <td width="110px">
-            <?php htmlSelect($order_num, array('name'=>'add_menu_order','style'=>'width:70px;'),lang('menu_order')); ?>
+            <?php htmlFormInput(array('name'=>'add_menu_order','size'=>'3'),lang('menu_order')); ?>
         </td>
         <?php  if(isset($err) && $err) {?>
         <td width="200px">
