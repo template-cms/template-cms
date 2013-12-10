@@ -83,9 +83,18 @@
         $minutes = range(0, 59);
         $seconds = range(0, 59);   
 
+        
+        
         // Check for get actions
         // ---------------------------------------------
         if (isGet('action')) {
+            // Creating CSRF token 
+            if(!(isPost('add_page') || isPost('add_page_and_exit') || isPost('edit_page') || isPost('edit_page_and_exit'))) {
+                $start_time   = time();
+                $token_expire = 600;
+                $_SESSION['tk_esp'] = $start_time + $token_expire;
+                $_SESSION['token']  = md5($start_time.$_SESSION['user_id'].sha1($start_time.$_SESSION['user_login']));
+            }
 
             // Switch actions
             // ---------------------------------------------
@@ -139,6 +148,7 @@
 
                         // Validate
                         //--------------
+                        if ($_SESSION['token'] != trim(post('token')) || $_SESSION['tk_esp'] < $start_time)  $errors['pages_empty_name'] = 'token error';
                         if (trim(post('page_name')) == '') $errors['pages_empty_name'] = lang('pages_empty_field');
                         if (file_exists($pages_path.safeName(post('page_name'), '-', true).'.xml')) $errors['pages_exists'] = lang('pages_exists');
 
@@ -246,6 +256,7 @@
 
                         // Validate
                         //--------------
+                        if ($_SESSION['token'] != trim(post('token')) || $_SESSION['tk_esp'] < $start_time)  $errors['pages_empty_name'] = 'token error';        
                         if (trim(post('page_name')) == '') $errors['pages_empty_name'] = lang('pages_empty_field');        
                         if ((file_exists($pages_path.safeName(post('page_name'), '-', true).'.xml')) and (safeName(post('page_old_name'), '-', true) !== safeName(post('page_name'), '-', true))) $errors['pages_exists'] = lang('pages_exists');
                         if (trim(post('page_title')) == '') $errors['pages_empty_title'] = lang('pages_empty_field');
@@ -396,7 +407,7 @@
 
                     // Get page to edit
                     $xml = getXML('../'.TEMPLATE_CMS_DATA_PATH.'pages/'.get('filename').'.xml');
-
+                    
                     if ($xml) {
                         // Safe fields or load fields
                         if (isPost('page_name')) $slug_to_edit = post('page_name'); else $slug_to_edit = $xml->slug;

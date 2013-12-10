@@ -1,6 +1,8 @@
 <?php
     htmlAdminHeading(lang('blocks_creating'));
     htmlFormOpen('index.php?id=themes&sub_id=blocks&action=add_block');
+    
+    htmlFormHidden('token', $_SESSION['token']); 
 
     if(isset($errors['blocks_empty_name'])) $error_style = 'border:1px solid #FA7660'; else $error_style = '';
     htmlFormInput(array('name'=>'blocks_editor_name','style'=>$error_style,'value'=>$post_name),lang('blocks_name'));
